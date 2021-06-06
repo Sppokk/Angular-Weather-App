@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h3 class="text-center my-4">Search for Weather:
+        <img style="height:1em; border-radius: 5px;" src="../../assets/storm.png" alt="sol">
+        <img style="height:1em; border-radius: 5px;" src="../../assets/rain.jpg" alt="rain">
+        <img style="height:1em; border-radius: 5px;" src="../../assets/sun2.jpg" alt="sun">
+        <img style="height:1em; border-radius: 5px;" src="../../assets/wind.jpg" alt="sun">
+      </h3>
+      <form [formGroup]="weatherSearchForm" (ngSubmit)="sendToAPI(weatherSearchForm.value)">
+        <div class="form-group">
+          <input class="form-control" type="text" id="weatherLocation" aria-describedby="weatherLocation"
+            placeholder="please type a city name" formControlName="location" />
+        </div><br>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success btn-md">
+            Search for the weather
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-8 ">
+      <h3 class="text-center my-4">Weather Details:</h3>
+      <p class="text-center h5">
+       City name:<span class=result> {{ this.weatherData?.location }}</span></p>
+      <p class="text-center h5">
+        Temperature in Degrees Celsius:<span class=result> {{ this.weatherData?.temperature }}</span></p>
+      <p class="text-center h5">
+        Humidity:<span class=result> {{ this.weatherData?.humidity }}</span>
+      </p>
+      <p class="text-center h5">
+        Feels like in Degrees Celsius:<span class=result> {{ this.weatherData?.feelslike}}</span>
+      </p>
+      <p class="text-center h5">
+        Visibility:<span class=result>{{this.weatherData?.visibility }}</span>
+      </p>
+      <p class="text-center h5">
+        UV-index:<span class=result>{{this.weatherData?.uv_index }}</span>
+      </p>
+      <p class="text-center h5">
+        Country:<span class=result> {{this.weatherData?.country }}</span>
+      </p>
+    </div>
+  </div>
+</div>
